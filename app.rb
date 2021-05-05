@@ -16,4 +16,9 @@ class App
     result = router.resolve(env) # 4
     [result.status, result.headers, result.content] # 5
   end
+  
+  def self.root
+    File.dirname(__FILE__)
+  end
+
 end

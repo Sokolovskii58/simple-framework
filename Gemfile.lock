@@ -16,6 +16,11 @@ GEM
     puma (5.2.2)
       nio4r (~> 2.0)
     rack (2.2.3)
+    slim (4.1.0)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 2.0.6, < 2.1)
+    temple (0.8.2)
+    tilt (2.0.10)
     transproc (1.1.1)
     url_mount (0.2.1)
       rack
@@ -27,6 +32,7 @@ DEPENDENCIES
   hanami-router
   puma
   rack
+  slim
 
 RUBY VERSION
    ruby 2.7.2p137
