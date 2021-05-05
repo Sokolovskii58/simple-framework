@@ -5,6 +5,12 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each {|file| require
 
 require "./lib/router" # 2
 
+db_config_file = File.join(File.dirname(__FILE__), "app", "database.yml")
+if File.exist?(db_config_file)
+  config = YAML.load(File.read(db_config_file))
+  DB = Sequel.connect(config)
+end
+
 class App
   attr_reader :router
 

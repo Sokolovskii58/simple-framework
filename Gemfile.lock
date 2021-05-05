@@ -16,9 +16,11 @@ GEM
     puma (5.2.2)
       nio4r (~> 2.0)
     rack (2.2.3)
+    sequel (5.44.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
+    sqlite3 (1.4.2)
     temple (0.8.2)
     tilt (2.0.10)
     transproc (1.1.1)
@@ -32,7 +34,9 @@ DEPENDENCIES
   hanami-router
   puma
   rack
+  sequel
   slim
+  sqlite3
 
 RUBY VERSION
    ruby 2.7.2p137
