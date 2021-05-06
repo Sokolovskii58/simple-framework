@@ -1,1 +1,1 @@
-Just a training session on writing  framework that looks like a rails
+Just a training session on writing simple framework that looks like a rails
