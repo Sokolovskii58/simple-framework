@@ -4,32 +4,32 @@ class Controller
 
   def initialize(name: nil, action: nil)
     @name = name
-    @action = action # 1
+    @action = action
   end
 
   def call
-    send(action) # 1
+    send(action)
     self.status = 200
     self.headers = {"Content-Type" => "text/html"}
-    self.content = [template.render(self)] # 2
+    self.content = [template.render(self)]
     self
   end
 
-  def template # 3
-    Slim::Template.new(File.join(App.root, 'app', 'views', "#{self.name}", "#{self.action}.slim"))  
-  end
-
-  def not_found # 4
+  def not_found
     self.status = 404
     self.headers = {}
     self.content = ["Nothing found"]
     self
   end
 
-  def internal_error # 5
+  def internal_error
     self.status = 500
     self.headers = {}
     self.content = ["Internal error"]
     self
+  end
+
+  def template
+    Slim::Template.new(File.join(App.root, 'app', 'views', "#{self.name}", "#{self.action}.slim"))
   end
 end

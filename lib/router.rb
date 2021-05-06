@@ -2,25 +2,25 @@ class Router
   attr_reader :routes
 
   def initialize(routes)
-    @routes = routes # 1
+    @routes = routes
   end
 
   def resolve(env)
-    path = env['REQUEST_PATH'] # 2 
-    if routes.key?(path) # 3 
-      ctrl(routes[path]).call # 4
+    path = env['REQUEST_PATH']
+    if routes.key?(path)
+      ctrl(routes[path]).call
     else
-      Controller.new.not_found # 5
+      Controller.new.not_found
     end
   rescue Exception => error
     puts error.message
     puts error.backtrace
-    Controller.new.internal_error # 6
+    Controller.new.internal_error
   end
 
-  private def ctrl(string) 
+  private def ctrl(string)
     ctrl_name, action_name = string.split('#')
-    klass = Object.const_get "#{ctrl_name.capitalize}Controller"
+    klass = Object.const_get("#{ctrl_name.capitalize}Controller", Class.new)
     klass.new(name: ctrl_name, action: action_name.to_sym)
   end
 end
