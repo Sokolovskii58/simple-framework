@@ -13,8 +13,8 @@ class Router
       Controller.new.not_found
     end
   rescue Exception => error
-    puts error.message
-    puts error.backtrace
+    puts error.message,
+         error.backtrace
     Controller.new.internal_error
   end
 
